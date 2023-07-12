@@ -1,0 +1,275 @@
+.about__container {
+  background-color: $color-default-white;
+  padding-top: 120px;
+  padding-bottom: 235px;
+  display: flex;
+
+  @include vp-1200 {
+    padding-top: 105px;
+    padding-bottom: 183px;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  @include vp-767 {
+    padding: 70px 0;
+    align-items: left;
+  }
+}
+
+.about__description-container {
+  padding-top: 45px;
+  padding-left: 60px;
+
+  @include vp-1200 {
+    padding: 0 82px;
+    width: 100%;
+  }
+
+  @include vp-767 {
+    margin-top: -3px;
+    padding: 0 15px;
+  }
+}
+
+.about__title {
+  margin: 0;
+  padding: 0;
+  color: $color-primary;
+  font-size: 48px;
+  font-family: $font-family-primary;
+  font-weight: 600;
+  line-height: 100%;
+  letter-spacing: 1.44px;
+  margin-bottom: 12px;
+
+  @include vp-1200 {
+    margin-bottom: 3px;
+    margin-left: -12px;
+    font-size: 42px;
+    letter-spacing: 2px;
+    text-align: center;
+  }
+
+  @include vp-767 {
+    margin-bottom: 7px;
+    text-align: left;
+    margin-left: 0;
+    font-size: 32px;
+    letter-spacing: 0.96px;
+  }
+}
+
+.about__title-descripton {
+  color: $color-primary;
+  font-size: 18px;
+  font-family: $font-family-secondary;
+  font-weight: 400;
+  line-height: 150%;
+  display: block;
+  margin-bottom: 39px;
+
+  @include vp-1200 {
+    text-align: center;
+    margin-bottom: 34px;
+  }
+
+  @include vp-767 {
+    text-align: left;
+    margin-bottom: 26px;
+    margin-left: 0;
+  }
+}
+
+.about__descripton {
+  margin: 0;
+  padding: 0;
+  @include regular-text;
+  color: $color-primary;
+  max-width: 355px;
+
+  @include vp-1200 {
+    display: block;
+    margin-bottom: 43px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 300;
+    max-width: 100%;
+  }
+
+  @include vp-767 {
+    margin-bottom: 32px;
+    text-align: left;
+    padding-right: 28px;
+  }
+
+  &:last-child {
+    @include vp-1200 {
+      display: none;
+    }
+  }
+}
+
+.about__multimedia-container {
+  position: relative;
+  margin-left: 85px;
+
+  @include vp-1200 {
+    margin-left: 0;
+  }
+}
+
+.about__multimedia-image {
+  @include vp-767 {
+    margin-bottom: 40px;
+  }
+}
+
+.about__image {
+  @include vp-1200 {
+    width: 678px;
+    height: 345px;
+  }
+
+  @include vp-767 {
+    width: 320px;
+    height: 313px;
+  }
+}
+
+.about__multimedia-video-container {
+  width: 364px;
+  height: 228px;
+  position: absolute;
+  left: -63px;
+  bottom: -116px;
+
+  @include vp-1200 {
+    left: calc(50% - 133px);
+    bottom: -83px;
+    width: 266px;
+    height: 167px;
+  }
+
+  @include vp-767 {
+    position: relative;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 167px;
+  }
+}
+
+.about__multimedia-video {
+  width: 364px;
+  height: 228px;
+
+  @include vp-1200 {
+    width: 266px;
+    height: 167px;
+  }
+
+  @include vp-767 {
+    width: 100%;
+    height: 167px;
+  }
+}
+
+.about__video-cover-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  @include vp-1200 {
+    width: 266px;
+    height: 167px;
+  }
+
+  @include vp-767 {
+    width: 100%;
+  }
+}
+
+.about__video-cover-button {
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  position: absolute;
+  top: calc(50% - 50px);
+  left: calc(50% - 50px);
+  width: 100px;
+  height: 100px;
+  background-color: $color-transparent;
+  border: none;
+
+  @include vp-1200 {
+    top: calc(50% - 36px);
+    left: calc(50% - 36px);
+    width: 73px;
+    height: 73px;
+  }
+
+  &:focus img,
+  &:active img,
+  &:disabled img,
+  &:hover img {
+    display: none;
+  }
+
+  &:focus .about__video-cover-button-icon,
+  &:disabled .about__video-cover-button-icon,
+  &:hover .about__video-cover-button-icon {
+    fill: $color-primary;
+  }
+
+  &:focus,
+  &:disabled,
+  &:hover {
+    box-shadow: 0 0 0 2px $color-primary inset;
+    outline: none;
+    background-color: $color-transparent;
+    border-radius: 50%;
+  }
+
+  &:focus .about__video-cover-button-mark,
+  &:disabled .about__video-cover-button-mark,
+  &:hover .about__video-cover-button-mark {
+    background-color: $color-default-white;
+    display: block;
+    position: absolute;
+    border-radius: 50%;
+    width: 72px;
+    height: 72px;
+    top: calc(50% - 36px);
+    left: calc(50% - 36px);
+  }
+
+  &:active:not(:disabled) .about__video-cover-button-mark {
+    width: 58px;
+    height: 58px;
+    top: calc(50% - 29px);
+    left: calc(50% - 29px);
+    background-color: $color-default-white;
+  }
+
+  &:disabled {
+    opacity: 0.4;
+    cursor: auto;
+  }
+}
+
+.about__video-cover-button-icon {
+  position: absolute;
+  top: calc(50% - 10px);
+  left: calc(50% - 6px);
+  width: 17px;
+  height: 17px;
+  fill: $color-default-white;
+
+  @include vp-1200 {
+    top: calc(50% - 6px);
+    left: calc(50% - 6px);
+    width: 12px;
+    height: 12px;
+  }
+}
