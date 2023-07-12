@@ -14,7 +14,7 @@ const compileMainMinScripts = () =>
       .pipe(vinylBuffer())
       .pipe(uglify())
       .pipe(concat('main.min.js'))
-      .pipe(gulp.dest('build/js'));
+      .pipe(gulp.dest('docs/js'));
 
 const compileMainScripts = () =>
   browserify('source/js/main.js', {debug: true})
@@ -25,7 +25,7 @@ const compileMainScripts = () =>
       .pipe(sourcemaps.init({loadMaps: true}))
       .pipe(concat('main.min.js'))
       .pipe(sourcemaps.write('.'))
-      .pipe(gulp.dest('build/js'));
+      .pipe(gulp.dest('docs/js'));
 
 const compileVendorScripts = () =>
   browserify('source/js/vendor.js')
@@ -35,6 +35,6 @@ const compileVendorScripts = () =>
       .pipe(vinylBuffer())
       .pipe(uglify())
       .pipe(concat('vendor.min.js'))
-      .pipe(gulp.dest('build/js'));
+      .pipe(gulp.dest('docs/js'));
 
 export {compileMainMinScripts, compileMainScripts, compileVendorScripts};

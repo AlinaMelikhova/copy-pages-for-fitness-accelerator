@@ -9,11 +9,11 @@ import {optimizeSvg, sprite, createWebp, optimizePng, optimizeJpg} from './gulp/
 const server = browserSync.create();
 const streamStyles = () => compileStyles().pipe(server.stream());
 
-const clean = () => del('build');
+const clean = () => del('docs');
 
 const syncServer = () => {
   server.init({
-    server: 'build/',
+    server: 'docs/',
     index: 'sitemap.html',
     notify: false,
     open: true,
@@ -39,8 +39,8 @@ const refresh = (done) => {
   done();
 };
 
-const build = gulp.series(clean, copy, sprite, gulp.parallel(compileMinStyles, compileMainMinScripts, compileVendorScripts, optimizePng, optimizeJpg, optimizeSvg, createWebp));
+const docs = gulp.series(clean, copy, sprite, gulp.parallel(compileMinStyles, compileMainMinScripts, compileVendorScripts, optimizePng, optimizeJpg, optimizeSvg, createWebp));
 const dev = gulp.series(clean, copy, sprite, gulp.parallel(compileMinStyles, compileMainMinScripts, compileVendorScripts, optimizePng, optimizeJpg, optimizeSvg, createWebp), syncServer);
 const start = gulp.series(clean, copy, sprite, gulp.parallel(compileStyles, compileMainScripts, compileVendorScripts), syncServer);
 
-export { createWebp as webp, build, start, dev};
+export { createWebp as webp, docs, start, dev};
