@@ -1967,10 +1967,14 @@ button,
   font-weight: 700;
   line-height: 100%;
   margin-right: 14px;
-  z-index: 1;
+  z-index: 10;
 }
 
-.catalog-card__price-container b {
+.catalog-card__price-container p::after {
+  content: attr(title);
+  width: 100px;
+  height: 100px;
+  display: block;
   padding: 0;
   margin: 0;
   position: absolute;
@@ -1983,7 +1987,7 @@ button,
   font-weight: 700;
   line-height: 100%;
   opacity: 0.5;
-  z-index: 0;
+  z-index: -1;
 }
 
 .catalog-card__price-container svg {
@@ -1991,6 +1995,7 @@ button,
   fill: #102654;
   position: relative;
   top: -8px;
+  z-index: 10;
 }
 
 .catalog-card__button {
@@ -4203,7 +4208,7 @@ button,
     margin-right: 10px;
   }
 
-  .catalog-card__price-container b {
+  .catalog-card__price-container p::after {
     top: -34px;
     left: -12px;
     font-size: 80px;
