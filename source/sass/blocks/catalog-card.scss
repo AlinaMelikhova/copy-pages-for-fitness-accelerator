@@ -23,7 +23,7 @@
   &:hover,
   &:focus {
     outline: none;
-    border-image: $gradient-primary;
+    border-image: $gradient-secondary;
     border-image-slice: 1;
   }
 
@@ -31,7 +31,7 @@
   &:focus .catalog-card__button:not(:disabled) {
     outline: none;
     color: $color-default-white;
-    background: $gradient-primary;
+    background: $gradient-secondary;
   }
 
   h4 {
@@ -130,5 +130,5 @@
 }
 
 .catalog-card__button {
-  padding: 25px 42px;
+  padding: 26px 43px;
 }

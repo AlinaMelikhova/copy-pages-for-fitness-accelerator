@@ -22,7 +22,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 60px 163px 70px 133px;
+    padding: 60px 163px 69px 133px;
     min-height: auto;
     margin-left: 0;
   }
@@ -36,13 +36,16 @@
     padding: 0;
     margin: 0;
     margin-bottom: 17px;
+    white-space: nowrap;
 
     @include vp-1200 {
       margin-bottom: 32px;
+      letter-spacing: 2px;
     }
 
     @include vp-767 {
       margin-bottom: 30px;
+      letter-spacing: 1.3px;
     }
   }
 }
@@ -52,7 +55,7 @@
   flex-direction: row;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 29px;
+  margin-bottom: 30px;
 
   @include vp-767 {
     margin-bottom: 6px;
@@ -61,6 +64,7 @@
 
   label {
     width: 46%;
+    position: relative;
 
     @include vp-1200 {
       width: 44%;
@@ -68,7 +72,7 @@
 
     @include vp-767 {
       width: 100%;
-      margin-bottom: 32px;
+      margin-bottom: 34px;
     }
   }
 
@@ -82,6 +86,12 @@
     padding: 0;
     margin: 0;
     padding-bottom: 3px;
+    position: relative;
+
+    &::placeholder {
+      opacity: 1;
+      color: $color-default-white;
+    }
 
     &:hover:not(:disabled) {
       border-bottom: 1px solid $color-default-white;
@@ -89,17 +99,48 @@
 
     &:focus:not(:disabled),
     &:active:not(:disabled) {
-      box-shadow: 0 0 0 1px $color-default-white inset;
       border: none;
       padding-bottom: 4px;
+      padding-left: 13px;
       outline: none;
+    }
+
+    &:focus:not(:disabled)::placeholder,
+    &:active:not(:disabled)::placeholder {
+      color: $color-transparent;
     }
 
     &:disabled {
       opacity: 0.3;
       cursor: auto;
     }
+
+
+    &:focus:not(:disabled) + span::before,
+    &:active:not(:disabled) + span::before{
+      content: "";
+      position: absolute;
+      display: block;
+      width: calc(100% + 5px);
+      height: calc(100% + 10px);
+      border: 1px solid #fff;
+      top: -9px;
+      left: -2px;
+      background-color: $color-transparent;
+    }
   }
+
+  span {
+    color: #ff121f;
+    font-family: $font-family-secondary;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 22px;
+  }
+}
+
+.is-invalid input {
+  border-bottom: 1px solid #ff121f;
 }
 
 .trial__form-button {
